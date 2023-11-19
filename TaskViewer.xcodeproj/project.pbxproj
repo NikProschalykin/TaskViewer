@@ -8,17 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		7E08466B2AB0C38100F1F5E1 /* TaskViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08466A2AB0C38100F1F5E1 /* TaskViewerApp.swift */; };
-		7E08466D2AB0C38100F1F5E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08466C2AB0C38100F1F5E1 /* ContentView.swift */; };
+		7E08466D2AB0C38100F1F5E1 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E08466C2AB0C38100F1F5E1 /* MainView.swift */; };
 		7E08466F2AB0C38300F1F5E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E08466E2AB0C38300F1F5E1 /* Assets.xcassets */; };
 		7E0846722AB0C38300F1F5E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E0846712AB0C38300F1F5E1 /* Preview Assets.xcassets */; };
+		7E582D562AF2DE9800A265A9 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E582D552AF2DE9800A265A9 /* TaskModel.swift */; };
+		7E582D592AF403EC00A265A9 /* CreateIssueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E582D582AF403EC00A265A9 /* CreateIssueViewModel.swift */; };
+		7E6ACBF82B097AC70063D109 /* IssueDisponcerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6ACBF72B097AC70063D109 /* IssueDisponcerViewModel.swift */; };
+		7EAD69092AE5A0ED00747B90 /* RolesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD69082AE5A0ED00747B90 /* RolesEnum.swift */; };
+		7EAD690C2AE5A34800747B90 /* OverviewDisponser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD690B2AE5A34800747B90 /* OverviewDisponser.swift */; };
+		7EAD690E2AE5A3B500747B90 /* BidList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD690D2AE5A3B500747B90 /* BidList.swift */; };
+		7EAD691B2AE5A85300747B90 /* DisposerContenVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD691A2AE5A85300747B90 /* DisposerContenVIew.swift */; };
+		7EAD69242AE5B30000747B90 /* TabViewDisponser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD69232AE5B30000747B90 /* TabViewDisponser.swift */; };
+		7EAD69272AE5C7C600747B90 /* IssuesDisponser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD69262AE5C7C600747B90 /* IssuesDisponser.swift */; };
+		7EAD69292AE5C84900747B90 /* IssueDisponserHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD69282AE5C84900747B90 /* IssueDisponserHeader.swift */; };
+		7EAD692B2AE5CC8900747B90 /* CreateIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD692A2AE5CC8900747B90 /* CreateIssue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7E0846672AB0C38100F1F5E1 /* TaskViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E08466A2AB0C38100F1F5E1 /* TaskViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewerApp.swift; sourceTree = "<group>"; };
-		7E08466C2AB0C38100F1F5E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7E08466C2AB0C38100F1F5E1 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7E08466E2AB0C38300F1F5E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E0846712AB0C38300F1F5E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7E582D552AF2DE9800A265A9 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		7E582D582AF403EC00A265A9 /* CreateIssueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIssueViewModel.swift; sourceTree = "<group>"; };
+		7E6ACBF72B097AC70063D109 /* IssueDisponcerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDisponcerViewModel.swift; sourceTree = "<group>"; };
+		7EAD69082AE5A0ED00747B90 /* RolesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesEnum.swift; sourceTree = "<group>"; };
+		7EAD690B2AE5A34800747B90 /* OverviewDisponser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewDisponser.swift; sourceTree = "<group>"; };
+		7EAD690D2AE5A3B500747B90 /* BidList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidList.swift; sourceTree = "<group>"; };
+		7EAD691A2AE5A85300747B90 /* DisposerContenVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposerContenVIew.swift; sourceTree = "<group>"; };
+		7EAD69232AE5B30000747B90 /* TabViewDisponser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDisponser.swift; sourceTree = "<group>"; };
+		7EAD69262AE5C7C600747B90 /* IssuesDisponser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesDisponser.swift; sourceTree = "<group>"; };
+		7EAD69282AE5C84900747B90 /* IssueDisponserHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDisponserHeader.swift; sourceTree = "<group>"; };
+		7EAD692A2AE5CC8900747B90 /* CreateIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIssue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +73,11 @@
 		7E0846692AB0C38100F1F5E1 /* TaskViewer */ = {
 			isa = PBXGroup;
 			children = (
+				7E582D542AF2DE8100A265A9 /* Models */,
+				7EAD69072AE5A0D300747B90 /* Roles */,
+				7E08467B2AB0C5AC00F1F5E1 /* Resorces */,
+				7E08467A2AB0C5A200F1F5E1 /* ContentViews */,
 				7E08466A2AB0C38100F1F5E1 /* TaskViewerApp.swift */,
-				7E08466C2AB0C38100F1F5E1 /* ContentView.swift */,
-				7E08466E2AB0C38300F1F5E1 /* Assets.xcassets */,
 				7E0846702AB0C38300F1F5E1 /* Preview Content */,
 			);
 			path = TaskViewer;
@@ -65,6 +89,223 @@
 				7E0846712AB0C38300F1F5E1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7E08467A2AB0C5A200F1F5E1 /* ContentViews */ = {
+			isa = PBXGroup;
+			children = (
+				7EA376662AD070CB0018843A /* MainView */,
+			);
+			path = ContentViews;
+			sourceTree = "<group>";
+		};
+		7E08467B2AB0C5AC00F1F5E1 /* Resorces */ = {
+			isa = PBXGroup;
+			children = (
+				7E08466E2AB0C38300F1F5E1 /* Assets.xcassets */,
+			);
+			path = Resorces;
+			sourceTree = "<group>";
+		};
+		7E582D542AF2DE8100A265A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7E582D552AF2DE9800A265A9 /* TaskModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7E582D572AF403CF00A265A9 /* CreateIssue */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD692A2AE5CC8900747B90 /* CreateIssue.swift */,
+				7E582D5A2AF403F100A265A9 /* ViewModel */,
+			);
+			path = CreateIssue;
+			sourceTree = "<group>";
+		};
+		7E582D5A2AF403F100A265A9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7E582D582AF403EC00A265A9 /* CreateIssueViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7E6ACBF62B097AAA0063D109 /* IssueDisponcerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7E6ACBF72B097AC70063D109 /* IssueDisponcerViewModel.swift */,
+			);
+			path = IssueDisponcerViewModel;
+			sourceTree = "<group>";
+		};
+		7EA376662AD070CB0018843A /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				7E08466C2AB0C38100F1F5E1 /* MainView.swift */,
+				7EAD69122AE5A5E300747B90 /* Unselected */,
+				7EAD69112AE5A5DB00747B90 /* Performer */,
+				7EAD69102AE5A5CF00747B90 /* Admin */,
+				7EAD690F2AE5A5C100747B90 /* Disponser */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		7EA376672AD070D20018843A /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD690D2AE5A3B500747B90 /* BidList.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		7EAD69072AE5A0D300747B90 /* Roles */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69082AE5A0ED00747B90 /* RolesEnum.swift */,
+			);
+			path = Roles;
+			sourceTree = "<group>";
+		};
+		7EAD690A2AE5A2D000747B90 /* Overview_disposer */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD690B2AE5A34800747B90 /* OverviewDisponser.swift */,
+				7EA376672AD070D20018843A /* SupportingViews */,
+			);
+			path = Overview_disposer;
+			sourceTree = "<group>";
+		};
+		7EAD690F2AE5A5C100747B90 /* Disponser */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD691F2AE5B0D100747B90 /* ContentView_disponser */,
+				7EAD690A2AE5A2D000747B90 /* Overview_disposer */,
+				7EAD691D2AE5B06300747B90 /* Issues_disponser */,
+				7EAD691E2AE5B09B00747B90 /* Execution_disponser */,
+				7EAD691C2AE5AFE800747B90 /* Profile_disponser */,
+			);
+			path = Disponser;
+			sourceTree = "<group>";
+		};
+		7EAD69102AE5A5CF00747B90 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69182AE5A6BE00747B90 /* Overview_admin */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		7EAD69112AE5A5DB00747B90 /* Performer */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69162AE5A69E00747B90 /* Overview_performer */,
+			);
+			path = Performer;
+			sourceTree = "<group>";
+		};
+		7EAD69122AE5A5E300747B90 /* Unselected */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69132AE5A60600747B90 /* Overview_unselected */,
+			);
+			path = Unselected;
+			sourceTree = "<group>";
+		};
+		7EAD69132AE5A60600747B90 /* Overview_unselected */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69152AE5A62800747B90 /* SupportingViews */,
+			);
+			path = Overview_unselected;
+			sourceTree = "<group>";
+		};
+		7EAD69152AE5A62800747B90 /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		7EAD69162AE5A69E00747B90 /* Overview_performer */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69172AE5A6AB00747B90 /* SupportingViews */,
+			);
+			path = Overview_performer;
+			sourceTree = "<group>";
+		};
+		7EAD69172AE5A6AB00747B90 /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		7EAD69182AE5A6BE00747B90 /* Overview_admin */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69192AE5A6CD00747B90 /* SupportingViews */,
+			);
+			path = Overview_admin;
+			sourceTree = "<group>";
+		};
+		7EAD69192AE5A6CD00747B90 /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		7EAD691C2AE5AFE800747B90 /* Profile_disponser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile_disponser;
+			sourceTree = "<group>";
+		};
+		7EAD691D2AE5B06300747B90 /* Issues_disponser */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69262AE5C7C600747B90 /* IssuesDisponser.swift */,
+				7E6ACBF62B097AAA0063D109 /* IssueDisponcerViewModel */,
+				7EAD69252AE5C79E00747B90 /* SupportingViews */,
+			);
+			path = Issues_disponser;
+			sourceTree = "<group>";
+		};
+		7EAD691E2AE5B09B00747B90 /* Execution_disponser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Execution_disponser;
+			sourceTree = "<group>";
+		};
+		7EAD691F2AE5B0D100747B90 /* ContentView_disponser */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD691A2AE5A85300747B90 /* DisposerContenVIew.swift */,
+				7EAD69222AE5B11F00747B90 /* SupportingsViews */,
+			);
+			path = ContentView_disponser;
+			sourceTree = "<group>";
+		};
+		7EAD69222AE5B11F00747B90 /* SupportingsViews */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69232AE5B30000747B90 /* TabViewDisponser.swift */,
+			);
+			path = SupportingsViews;
+			sourceTree = "<group>";
+		};
+		7EAD69252AE5C79E00747B90 /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				7EAD69282AE5C84900747B90 /* IssueDisponserHeader.swift */,
+				7E582D572AF403CF00A265A9 /* CreateIssue */,
+			);
+			path = SupportingViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +378,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E08466D2AB0C38100F1F5E1 /* ContentView.swift in Sources */,
+				7EAD691B2AE5A85300747B90 /* DisposerContenVIew.swift in Sources */,
+				7EAD69092AE5A0ED00747B90 /* RolesEnum.swift in Sources */,
+				7EAD69242AE5B30000747B90 /* TabViewDisponser.swift in Sources */,
+				7E08466D2AB0C38100F1F5E1 /* MainView.swift in Sources */,
+				7E6ACBF82B097AC70063D109 /* IssueDisponcerViewModel.swift in Sources */,
+				7E582D562AF2DE9800A265A9 /* TaskModel.swift in Sources */,
+				7EAD69292AE5C84900747B90 /* IssueDisponserHeader.swift in Sources */,
+				7E582D592AF403EC00A265A9 /* CreateIssueViewModel.swift in Sources */,
+				7EAD69272AE5C7C600747B90 /* IssuesDisponser.swift in Sources */,
+				7EAD690C2AE5A34800747B90 /* OverviewDisponser.swift in Sources */,
 				7E08466B2AB0C38100F1F5E1 /* TaskViewerApp.swift in Sources */,
+				7EAD690E2AE5A3B500747B90 /* BidList.swift in Sources */,
+				7EAD692B2AE5CC8900747B90 /* CreateIssue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +527,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +557,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
