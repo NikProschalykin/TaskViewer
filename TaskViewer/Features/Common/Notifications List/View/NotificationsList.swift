@@ -33,6 +33,12 @@ struct NotificationsList: View {
                 .padding(.all,10)
             }
         }
+        .onAppear {
+            viewModel.loadNotifications()
+        }
+        .onDisappear {
+            viewModel.seenNotifications()
+        }
     }
 }
 

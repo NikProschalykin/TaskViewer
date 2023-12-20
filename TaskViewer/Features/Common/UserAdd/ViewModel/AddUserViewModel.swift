@@ -1,4 +1,6 @@
 import Foundation
+import SwiftUI
+import CoreData
 
 final class AddUserViewModel: ObservableObject {
     
@@ -14,7 +16,7 @@ final class AddUserViewModel: ObservableObject {
     func addUser(user role: UserRole) {
         switch role {
         case .performer:
-            Performer(gender: gender,
+            let performer = Performer(gender: gender,
                       dateOfBirth: dateOfBirth,
                       name: name,
                       surname: surname,
@@ -22,8 +24,9 @@ final class AddUserViewModel: ObservableObject {
                       imageName: "Empty",
                       mail: mail,
                       password: password)
+            CoreDataController.shared.createUser(user: performer)
         case .disposer:
-            Disponser(gender: gender,
+            let disponcer = Disponser(gender: gender,
                       dateOfBirth: dateOfBirth,
                       name: name,
                       surname: surname,
@@ -31,7 +34,19 @@ final class AddUserViewModel: ObservableObject {
                       imageName: "Empty",
                       mail: mail,
                       password: password)
-        default: return
+            CoreDataController.shared.createUser(user: disponcer)
+            
+        case .admin:
+            let admin = Admin(gender: gender,
+                              dateOfBirth: dateOfBirth,
+                              name: name,
+                              surname: surname,
+                              position: position,
+                              imageName: "Empty",
+                              mail: mail,
+                              password: password)
+            
+            CoreDataController.shared.createUser(user: admin)
         }
     }
 }

@@ -12,8 +12,6 @@ struct MainView: View {
                 DisposerContenView()
             case .admin:
                 AdminContentView()
-            case .unselected:
-                Text("Unselected")
             }
         }
     }

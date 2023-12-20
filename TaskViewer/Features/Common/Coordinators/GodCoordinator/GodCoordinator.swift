@@ -8,6 +8,6 @@ final class GodCoordinator: ObservableObject {
                                            status: .unseen,
                                            user: user)
         
-        variableNotifications.append(notification)
+        CoreDataController.shared.createNotification(notification: notification)
     }
 }

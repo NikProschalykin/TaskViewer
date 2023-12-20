@@ -23,8 +23,8 @@ struct DisponsersList: View {
             }
             .padding(.trailing, 20)
             List {
-                if !viewModel.storedDisponcers.isEmpty {
-                    ForEach(viewModel.storedDisponcers, id: \.self) { disponcer in
+                if !viewModel.filtredDisponcers.isEmpty {
+                    ForEach(viewModel.filtredDisponcers, id: \.id) { disponcer in
                         NavigationLink {
                             DisponcerPreView(disponcer: disponcer)
                         } label: {
@@ -42,6 +42,10 @@ struct DisponsersList: View {
             .searchable(text: $viewModel.searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: "Найти руководителя")
             .navigationTitle("Руководители")
             .listStyle(.insetGrouped)
+            
+        }
+        .onAppear {
+            viewModel.filterDisponcers()
         }
     }
 }

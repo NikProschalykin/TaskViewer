@@ -62,6 +62,9 @@ struct OverviewDisponser: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.loadCardsArray()
+        }
     }
 }
 

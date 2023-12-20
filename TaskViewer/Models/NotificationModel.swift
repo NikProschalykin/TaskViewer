@@ -1,7 +1,11 @@
 import Foundation
 import SwiftUI
 
-struct AppNotification: Hashable {
+protocol AppNotificationProtocol: Hashable, Equatable {
+    var id: UUID { get }
+}
+
+struct AppNotification: AppNotificationProtocol {
     static func == (lhs: AppNotification, rhs: AppNotification) -> Bool {
         (lhs.id == rhs.id)
     }
@@ -10,7 +14,7 @@ struct AppNotification: Hashable {
         hasher.combine(id)
     }
     
-    let id = UUID()
+    var id: UUID = UUID()
     let title: String
     let decription: String
     let date: Date = Date()

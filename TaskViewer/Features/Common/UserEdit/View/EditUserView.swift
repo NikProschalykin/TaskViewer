@@ -48,8 +48,8 @@ struct EditUserView: View {
     }
 }
 
-struct EditUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        EditUserView(user: constantDisponcer)
-    }
-}
+//struct EditUserView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EditUserView(user: constantDisponcer)
+//    }
+//}

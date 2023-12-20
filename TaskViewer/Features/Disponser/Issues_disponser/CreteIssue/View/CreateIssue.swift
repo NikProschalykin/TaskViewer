@@ -50,12 +50,7 @@ struct CreateIssue: View {
                     }
 
                     CreateTaskButton {
-                        viewModel.createTask(title: viewModel.TitleTextField,
-                                             description: viewModel.DescriptionTextField,
-                                             steps: viewModel.stepsInfo,
-                                             performers: viewModel.performers,
-                                             disponcer: constantDisponcer,
-                                             isConsistenly: viewModel.isConsistenly)
+                        viewModel.createTask()
                         dismiss()
                     }
                     
@@ -175,7 +170,7 @@ struct AddStepButton: View {
     var body: some View {
         HStack(alignment: .center) {
             CustomBlueButton(buttonText: "Добавить шаг", action: {
-                stepsInfo.append(Step(title: "", description: "", status: .inProgress))
+                stepsInfo.append(Step(id: UUID(),title: "", description: "", status: .inProgress))
             })
         }
     }

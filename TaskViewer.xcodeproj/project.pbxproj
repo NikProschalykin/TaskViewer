@@ -39,6 +39,8 @@
 		7E7F8E562B2675A2007E4264 /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F8E552B2675A2007E4264 /* UserStateViewModel.swift */; };
 		7E7F8E8A2B29F273007E4264 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F8E892B29F273007E4264 /* ChangePasswordViewModel.swift */; };
 		7E7F8E8E2B29F3D2007E4264 /* ProfileContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7F8E8D2B29F3D2007E4264 /* ProfileContentViewModel.swift */; };
+		7E93378A2B3369260024CD31 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E9337882B3369260024CD31 /* DataModel.xcdatamodeld */; };
+		7E93378C2B33ACB10024CD31 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E93378B2B33ACB10024CD31 /* LogInViewModel.swift */; };
 		7EAD69092AE5A0ED00747B90 /* RolesEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD69082AE5A0ED00747B90 /* RolesEnum.swift */; };
 		7EAD690C2AE5A34800747B90 /* OverviewDisponser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD690B2AE5A34800747B90 /* OverviewDisponser.swift */; };
 		7EAD691B2AE5A85300747B90 /* DisposerContenVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD691A2AE5A85300747B90 /* DisposerContenVIew.swift */; };
@@ -57,6 +59,7 @@
 		7EF42D6A2B1F634D003F8021 /* ProfileContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF42D692B1F634D003F8021 /* ProfileContentView.swift */; };
 		7EF42D6C2B1F6D40003F8021 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF42D6B2B1F6D40003F8021 /* UserSettings.swift */; };
 		7EF42D6E2B2074FA003F8021 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF42D6D2B2074FA003F8021 /* ChangePasswordView.swift */; };
+		7EFC2AFD2B30902B00962CAF /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC2AFC2B30902B00962CAF /* CoreDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +96,8 @@
 		7E7F8E552B2675A2007E4264 /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
 		7E7F8E892B29F273007E4264 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		7E7F8E8D2B29F3D2007E4264 /* ProfileContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewModel.swift; sourceTree = "<group>"; };
+		7E9337892B3369260024CD31 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		7E93378B2B33ACB10024CD31 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		7EAD69082AE5A0ED00747B90 /* RolesEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RolesEnum.swift; sourceTree = "<group>"; };
 		7EAD690B2AE5A34800747B90 /* OverviewDisponser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewDisponser.swift; sourceTree = "<group>"; };
 		7EAD691A2AE5A85300747B90 /* DisposerContenVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposerContenVIew.swift; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 		7EF42D692B1F634D003F8021 /* ProfileContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentView.swift; sourceTree = "<group>"; };
 		7EF42D6B2B1F6D40003F8021 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7EF42D6D2B2074FA003F8021 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		7EFC2AFC2B30902B00962CAF /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		7E0846692AB0C38100F1F5E1 /* TaskViewer */ = {
 			isa = PBXGroup;
 			children = (
+				7EFC2AFA2B30900C00962CAF /* CoreData */,
 				7E7F8E6A2B287AF1007E4264 /* Features */,
 				7E582D542AF2DE8100A265A9 /* Models */,
 				7E08467B2AB0C5AC00F1F5E1 /* Resorces */,
@@ -461,6 +468,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		7E5636722B3069520026CF06 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E9337882B3369260024CD31 /* DataModel.xcdatamodeld */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
 		7E582D542AF2DE8100A265A9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -717,6 +732,7 @@
 			isa = PBXGroup;
 			children = (
 				7E7F8E912B29F575007E4264 /* View */,
+				7E93378B2B33ACB10024CD31 /* LogInViewModel.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -829,6 +845,23 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		7EFC2AFA2B30900C00962CAF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7EFC2AFB2B30901900962CAF /* DataController */,
+				7E5636722B3069520026CF06 /* Data Model */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		7EFC2AFB2B30901900962CAF /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				7EFC2AFC2B30902B00962CAF /* CoreDataController.swift */,
+			);
+			path = DataController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -915,11 +948,13 @@
 				7E44D4202B10CA8A00C8C4D3 /* PerformerPreViewViewModel.swift in Sources */,
 				7E7F8E542B266D53007E4264 /* GodCoordinator.swift in Sources */,
 				7E396EAE2B2A42FB00EFC674 /* AddUserView.swift in Sources */,
+				7E93378C2B33ACB10024CD31 /* LogInViewModel.swift in Sources */,
 				7E396E822B29F5FA00EFC674 /* LogInVIew.swift in Sources */,
 				7EF42D6C2B1F6D40003F8021 /* UserSettings.swift in Sources */,
 				7E4C033A2B251D3B00C324D3 /* PerformerContentViewViewModel.swift in Sources */,
 				7EEAEF232B0F4EB5003A2ABC /* ExecutionViewModel.swift in Sources */,
 				7E56366D2B2E208E0026CF06 /* EditUserViewModel.swift in Sources */,
+				7E93378A2B3369260024CD31 /* DataModel.xcdatamodeld in Sources */,
 				7E6ACBF82B097AC70063D109 /* IssueDisponcerViewModel.swift in Sources */,
 				7EBF42D62B0A496100EFC4BB /* IssueEdit.swift in Sources */,
 				7E4C03442B25FB3000C324D3 /* NotificationModel.swift in Sources */,
@@ -940,6 +975,7 @@
 				7E56366B2B2E20760026CF06 /* EditUserView.swift in Sources */,
 				7E6FB7DD2B1127560073CD69 /* TaskCardsView.swift in Sources */,
 				7EF42D662B1F592F003F8021 /* DisponcerPreView.swift in Sources */,
+				7EFC2AFD2B30902B00962CAF /* CoreDataController.swift in Sources */,
 				7E396EB22B2A432E00EFC674 /* AddUserViewModel.swift in Sources */,
 				7E4C03332B2517AC00C324D3 /* PerformerContentView.swift in Sources */,
 				7E396E9A2B2A1D1B00EFC674 /* AdminContentView.swift in Sources */,
@@ -1153,6 +1189,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7E9337882B3369260024CD31 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7E9337892B3369260024CD31 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 7E9337892B3369260024CD31 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7E08465F2AB0C38100F1F5E1 /* Project object */;
 }

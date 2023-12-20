@@ -62,11 +62,10 @@ struct PerformerPreView: View {
                         Button(action: {
                             viewModel.isTrack.toggle()
                             if viewModel.isTrack {
-                                viewModel.storedTrackPerformers.append(viewModel.performer)
+                                viewModel.addToTrack()
                             } else {
-                                viewModel.storedTrackPerformers.remove(at: viewModel.storedTrackPerformers.firstIndex(where: {$0 == viewModel.performer})!)
+                                viewModel.removeFromTrack()
                             }
-                            print(viewModel.storedTrackPerformers.count)
                         }, label: {
                             Image(systemName: viewModel.isTrack ? "star.fill" : "star")
                                 .resizable()
@@ -77,12 +76,6 @@ struct PerformerPreView: View {
                 }
         }
         }
-    }
-}
-
-struct PerformerPreView_Previews: PreviewProvider {
-    static var previews: some View {
-        PerformerPreView(performer: constatntPerformers.first!)
     }
 }
 

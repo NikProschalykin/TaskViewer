@@ -27,6 +27,14 @@ final class EditUserViewModel: ObservableObject {
     
     //TODO: Save to DB
     func updateUser() {
+        user.gender  = gender
+        user.dateOfBirth = dateOfBirth
+        user.name = name
+        user.surname = surname
+        user.position = position
+        user.mail = mail
+        user.password = password
         
+        CoreDataController.shared.updateUser(for: user.id, user: user)
     }
 }

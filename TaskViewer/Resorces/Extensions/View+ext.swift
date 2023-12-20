@@ -8,6 +8,31 @@ extension View {
     }
 }
 
+extension Date {
+    func isWithinLastSevenDays() -> Bool? {
+        let calendar = Calendar.current
+        let now = Date()
+        let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: now)
+        return self >= (sevenDaysAgo ?? now)
+    }
+}
+
+struct competedCircleView: View {
+    var frame: CGFloat
+    var body: some View {
+        VStack {
+            Circle()
+                .fill(Color.green)
+                .frame(width: frame, height: frame)
+                .overlay(
+                    Image(systemName: "checkmark")
+                        .foregroundColor(.white)
+                )
+        }
+        .padding()
+    }
+}
+
 struct CircleView: View {
     var number: Int
     var currentStep: Int
@@ -35,7 +60,6 @@ struct CircleView: View {
             default:
                 Circle().overlay(Color.red)
             }
-            
         }
         .padding()
     }

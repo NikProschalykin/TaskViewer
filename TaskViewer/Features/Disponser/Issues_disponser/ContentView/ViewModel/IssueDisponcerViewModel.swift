@@ -1,13 +1,15 @@
 import Foundation
 import SwiftUI
 
-protocol TasksCardsViewModelProtocol: ObservableObject {
-   var storedTasks: [Task] { get set }
-}
-
-final class IssueDisponcerViewModel: TasksCardsViewModelProtocol {
+final class IssueDisponcerViewModel: ObservableObject {
     
-    var storedTasks: [Task] = constantTasks
-    var storedTasksCancelled: [Task] = constantCanceledTasks
-    var storedTasksCompleted: [Task] = constantCompletedTasks
+  @Published var storedTasks: [Task] = []
+  @Published var storedTasksCancelled: [Task] = []
+  @Published var storedTasksCompleted: [Task] = []
+    
+    public func loadTasks() {
+        storedTasks = CoreDataController.shared.fetchAllTasks().filter({ $0.status == .inProgress })
+        storedTasksCancelled = CoreDataController.shared.fetchAllTasks().filter({ $0.status == .canceled })
+        storedTasksCompleted = CoreDataController.shared.fetchAllTasks().filter({ $0.status == .completed })
+    }
 }

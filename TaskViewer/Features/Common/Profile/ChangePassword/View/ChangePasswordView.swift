@@ -108,10 +108,3 @@ struct ChangePasswordView: View {
     
 }
     
-
-
-struct ChangePasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChangePasswordView(user: constantTrackPerformers.first!)
-    }
-}

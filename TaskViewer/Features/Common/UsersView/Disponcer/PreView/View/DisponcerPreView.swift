@@ -59,8 +59,8 @@ struct DisponcerPreView: View {
     }
 }
 
-struct DisponcerPreView_Previews: PreviewProvider {
-    static var previews: some View {
-        DisponcerPreView(disponcer: constantDisponcer)
-    }
-}
+//struct DisponcerPreView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DisponcerPreView(disponcer: constantDisponcer)
+//    }
+//}

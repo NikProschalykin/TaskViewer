@@ -88,8 +88,8 @@ extension TaskCardsView {
         task.performers.forEach({ performer in
             str += "\(performer.name),"
         })
+        guard !str.isEmpty else { return str }
         str.removeLast()
-        
         return str
     }
     

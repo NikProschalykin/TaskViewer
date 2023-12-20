@@ -18,9 +18,10 @@ struct AddUserView: View {
             
             ScrollView(showsIndicators: false) {
                 VStack {
-                    Text(role == .performer ? "Добавление исполнителя" : "Добавление руководителя")
-                        .font(.custom(AvenirFont.bold.rawValue, size: 25))
-                    
+                    if role != .admin {
+                        Text(role == .performer ? "Добавление исполнителя" : "Добавление руководителя")
+                            .font(.custom(AvenirFont.bold.rawValue, size: 25))
+                    }
                     VStack(alignment: .leading) {
                         AddUserName(name: $viewModel.name, surname: $viewModel.surname, position: $viewModel.position)
                         Divider()

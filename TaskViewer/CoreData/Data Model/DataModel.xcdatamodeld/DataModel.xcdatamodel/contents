@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G920" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDNotification" representedClassName="CDNotification" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="descriptions" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="status" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="notifications" inverseEntity="CDUser"/>
+    </entity>
+    <entity name="CDStep" representedClassName="CDStep" syncable="YES" codeGenerationType="class">
+        <attribute name="descriptions" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="status" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTask" inverseName="steps" inverseEntity="CDTask"/>
+    </entity>
+    <entity name="CDTask" representedClassName="CDTask" syncable="YES" codeGenerationType="class">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="currentStep" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="descriptions" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isConsistenly" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lastEditDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="status" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="disponcer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="task_disponcer" inverseEntity="CDUser"/>
+        <relationship name="performer_task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDTaskPerformer" inverseName="task" inverseEntity="CDTaskPerformer"/>
+        <relationship name="performers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDUser" inverseName="task" inverseEntity="CDUser"/>
+        <relationship name="steps" toMany="YES" deletionRule="Nullify" destinationEntity="CDStep" inverseName="task" inverseEntity="CDStep"/>
+        <relationship name="trackTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrackTask" inverseName="task" inverseEntity="CDTrackTask"/>
+    </entity>
+    <entity name="CDTaskPerformer" representedClassName="CDTaskPerformer" syncable="YES" codeGenerationType="class">
+        <relationship name="performer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="performer_task" inverseEntity="CDUser"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTask" inverseName="performer_task" inverseEntity="CDTask"/>
+    </entity>
+    <entity name="CDTrackPerformer" representedClassName="CDTrackPerformer" syncable="YES" codeGenerationType="class">
+        <relationship name="disponcer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="track_disponcer" inverseEntity="CDUser"/>
+        <relationship name="performer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDUser" inverseName="track_performer" inverseEntity="CDUser"/>
+    </entity>
+    <entity name="CDTrackTask" representedClassName="CDTrackTask" syncable="YES" codeGenerationType="class">
+        <relationship name="disponcer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDUser" inverseName="trackTask_disponcer" inverseEntity="CDUser"/>
+        <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDTask" inverseName="trackTask" inverseEntity="CDTask"/>
+    </entity>
+    <entity name="CDUser" representedClassName="CDUser" syncable="YES" codeGenerationType="class">
+        <attribute name="birthDate" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="gender" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" attributeType="String"/>
+        <attribute name="mail" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="password" attributeType="String"/>
+        <attribute name="position" attributeType="String"/>
+        <attribute name="role" attributeType="String"/>
+        <attribute name="surname" attributeType="String"/>
+        <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDNotification" inverseName="user" inverseEntity="CDNotification"/>
+        <relationship name="performer_task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDTaskPerformer" inverseName="performer" inverseEntity="CDTaskPerformer"/>
+        <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDTask" inverseName="performers" inverseEntity="CDTask"/>
+        <relationship name="task_disponcer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDTask" inverseName="disponcer" inverseEntity="CDTask"/>
+        <relationship name="track_disponcer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrackPerformer" inverseName="disponcer" inverseEntity="CDTrackPerformer"/>
+        <relationship name="track_performer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrackPerformer" inverseName="performer" inverseEntity="CDTrackPerformer"/>
+        <relationship name="trackTask_disponcer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDTrackTask" inverseName="disponcer" inverseEntity="CDTrackTask"/>
+    </entity>
+</model>

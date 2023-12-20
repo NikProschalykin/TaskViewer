@@ -1,19 +1,18 @@
 import Foundation
 
-enum TaskStatus {
-    case completed
-    case canceled
-    case inProgress
+enum TaskStatus: String {
+    case completed = "Выполнено"
+    case canceled = "Отменено"
+    case inProgress = "Выполняется"
 }
 
-enum StepStatus {
-    case completed
-    case inProgress
-    case requestToComplete
+enum StepStatus: String {
+    case completed = "Выполнено"
+    case inProgress = "Выполняется"
 }
 
-enum NotificationStatus {
-    case seen
-    case unseen
+enum NotificationStatus: String {
+    case seen = "Просмотренно"
+    case unseen = "Не просмотренно"
 }
 

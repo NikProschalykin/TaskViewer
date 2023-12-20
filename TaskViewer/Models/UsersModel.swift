@@ -69,3 +69,16 @@ struct Admin: UserModelProtocol  {
         (lhs.name == rhs.name) && (lhs.surname == rhs.surname) && (lhs.position == rhs.position)
     }
 }
+
+struct Unknown: UserModelProtocol {
+    var id: UUID = UUID()
+    var name: String = "Неизвестно"
+    var surname: String = "Неизвестно"
+    var position: String = "Неизвестно"
+    var imageName: String = "Empty"
+    var gender: Gender = .male
+    var dateOfBirth: Date = Date()
+    var mail: String = "Неизвестно"
+    var password: String = "Неизвестно"
+    var role: UserRole = .performer
+}

@@ -57,19 +57,11 @@ struct IssueEdit: View {
                             }
                             
                             SaveInfoTaskButton {
-                                viewModel.saveUpdates(title: viewModel.TitleTextField,
-                                                      description: viewModel.DescriptionTextField,
-                                                      steps: viewModel.stepsInfo,
-                                                      performers: viewModel.performers,
-                                                      disponcer: viewModel.task.disponser,
-                                                      currentStep: viewModel.task.currentStep,
-                                                      isConsistenly: viewModel.isConsistenly,
-                                                      creationDate: viewModel.task.creationDate,
-                                                      lastEditDate: Date())
                                 viewModel.DescriptionSizes = viewModel.getArrayOfSizes(array: viewModel.stepsInfo)
                                 viewModel.initTask = viewModel.task
                                 viewModel.isEditable = false
                                 viewModel.task.lastEditDate = Date()
+                                viewModel.saveUpdates()
                             }
                         }
                     } else {
@@ -96,9 +88,9 @@ struct IssueEdit: View {
                                         Button(action: {
                                             viewModel.isTrack.toggle()
                                             if viewModel.isTrack {
-                                                viewModel.trackTask.append(viewModel.task)
+                                                viewModel.addToTrack()
                                             } else {
-                                                viewModel.trackTask.remove(at: viewModel.trackTask.firstIndex(where: {$0 == viewModel.task})!)
+                                                viewModel.removeFromTrack()
                                             }
                                         }, label: {
                                             Image(systemName: viewModel.isTrack ? "star.fill" : "star")
@@ -131,8 +123,12 @@ struct IssueEdit: View {
                                 ForEach(viewModel.stepsInfo.indices, id: \.self) { index in
                                     HStack(alignment: .top) {
                                             VStack(alignment: .leading) {
-                                                CircleView(number: index+1, currentStep: viewModel.task.currentStep, frame: 40)
-                                                    .scaleEffect((viewModel.stepsInfo[index].status != .completed && index == viewModel.indexOfTouchedStep) ? (viewModel.startAnimationStepImage ? 2.0 : 1.0) : 1.0)
+                                                if viewModel.stepsInfo[index].status == .completed {
+                                                    competedCircleView(frame: 40)
+                                                } else {
+                                                    CircleView(number: index+1, currentStep: viewModel.task.currentStep, frame: 40)
+                                                        .scaleEffect((viewModel.stepsInfo[index].status != .completed && index == viewModel.indexOfTouchedStep) ? (viewModel.startAnimationStepImage ? 2.0 : 1.0) : 1.0)
+                                                }
                                                 if index != viewModel.DescriptionSizes.count - 1 {
                                                     LineView(width: 2, height: viewModel.calculateHeight(height: viewModel.DescriptionSizes[index].height))
                                                         .padding(.leading, 35)
@@ -293,12 +289,14 @@ struct IssueEdit: View {
                                     HStack {
                                         CustomBlueButton(buttonText: "Отменить", color: .red) {
                                             viewModel.task.status = .canceled
+                                            viewModel.task.lastEditDate = Date()
                                             
                                            let description = "\(viewModel.task.disponser.name) \(viewModel.task.disponser.surname) отменил задачу \(viewModel.task.title)"
                                            viewModel.task.performers.forEach { user in
                                                godCoordinator.sendNotification(title: "Задача отменена", description: description, user: user)
                                            }
                                             viewModel.showSheet = false
+                                            viewModel.saveUpdates()
                                         }
                                         
                                         CustomBlueButton(buttonText: "Продолжить выполнение", color: .blue) {
@@ -314,12 +312,14 @@ struct IssueEdit: View {
                                     HStack {
                                         CustomBlueButton(buttonText: "Завершить", color: .green) {
                                             viewModel.task.status = .completed
+                                            viewModel.task.lastEditDate = Date()
                                                                                 
                                             let description = "\(viewModel.task.disponser.name) \(viewModel.task.disponser.surname) завершил задачу \(viewModel.task.title)"
                                             viewModel.task.performers.forEach { user in
                                                 godCoordinator.sendNotification(title: "Задача завершена", description: description, user: user)
                                             }
                                             viewModel.showSheet = false
+                                            viewModel.saveUpdates()
                                         }
                                         
                                         CustomBlueButton(buttonText: "Отменить", color: .red) {
@@ -329,17 +329,22 @@ struct IssueEdit: View {
                                 }
                             case .completeStep:
                                 VStack {
-                                    Text("Вы уверены, что хотите завершить шаг \(viewModel.indexOfTouchedStep)?")
+                                    Text("Вы уверены, что хотите завершить шаг \(viewModel.indexOfTouchedStep+1)?")
                                         .font(.custom(AvenirFont.medium.rawValue, size: 25))
                                      
                                     HStack {
                                         CustomBlueButton(buttonText: "Завершить", color: .green) {
                                             viewModel.stepsInfo[viewModel.indexOfTouchedStep].status = .completed
+                                            viewModel.task.lastEditDate = Date()
                                            
-                                            let description = "\(UserSettings.shared.user.name) \(UserSettings.shared.user.surname) завершил шаг \(viewModel.indexOfTouchedStep) в задаче \(viewModel.task.title)"
+                                            let description = "\(UserSettings.shared.user.name) \(UserSettings.shared.user.surname) завершил шаг \(viewModel.indexOfTouchedStep+1) в задаче \(viewModel.task.title)"
                                             godCoordinator.sendNotification(title: "Шаг завершен", description: description, user: viewModel.task.disponser)
                                             
                                             viewModel.showSheet = false
+                                            viewModel.stepsInfo[viewModel.indexOfTouchedStep].status = .completed
+                                            viewModel.task.currentStep = (viewModel.stepsInfo.firstIndex(where: { $0.status == .inProgress }) ?? viewModel.stepsInfo.count) + 1
+                                            print(viewModel.task.currentStep = (viewModel.stepsInfo.firstIndex(where: { $0.status == .inProgress }) ?? viewModel.stepsInfo.count) + 1)
+                                            viewModel.saveUpdates()
                                         }
                                         
                                         CustomBlueButton(buttonText: "Отменить", color: .red) {
@@ -402,11 +407,11 @@ extension String
     }
 }
 
-struct IssueEdit_Previews: PreviewProvider {
-    static var previews: some View {
-        IssueEdit(task: constantTasks.first!)
-    }
-}
+//struct IssueEdit_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IssueEdit(task: constantTasks.first!)
+//    }
+//}
 
 struct EditPermormersPickerView: View {
     

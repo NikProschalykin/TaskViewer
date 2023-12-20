@@ -45,6 +45,9 @@ struct PerformerContentView: View {
                 }
             }
             .tint(.black)
+            .onAppear {
+                viewModel.loadTasks()
+            }
         }
     }
 

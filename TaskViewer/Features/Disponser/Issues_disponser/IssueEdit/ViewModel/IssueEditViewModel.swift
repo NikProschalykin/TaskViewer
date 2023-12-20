@@ -6,7 +6,6 @@ protocol IssueEditViewModelProtocol {
     
     func addPickedPerformer(performer: Performer)
     func deletePickedPerformer(performer: Performer)
-    func saveUpdates(title: String, description: String, steps: [Step], performers: [Performer], disponcer: Disponser,currentStep: Int, isConsistenly: Bool, creationDate: Date, lastEditDate: Date)
 }
 
 enum ActiveSheet {
@@ -19,19 +18,15 @@ final class IssueEditViewModel: ObservableObject, IssueEditViewModelProtocol {
     
     @Published var task: Task
     
-    @Published var storedPerformers: [Performer] = constatntPerformers
-    
-    @Published var storedDisponser: Disponser = constantDisponcer
+    @Published var storedPerformers: [Performer] = CoreDataController.shared.fetchPerformers()
     
     @Published var performers: [Performer] = []
-    
-    @Published var trackTask: [Task] = constantTrackTasks
     
     @Published var TitleTextField = ""
     @Published var DescriptionTextField = ""
     @Published var isConsistenly = false
     
-    @Published var stepsInfo: [Step] = [Step(title: "", description: "", status: .inProgress)]
+    @Published var stepsInfo: [Step] = [Step(id: UUID(),title: "", description: "", status: .inProgress)]
     
     @Published var isEditable: Bool = false
     
@@ -58,7 +53,28 @@ final class IssueEditViewModel: ObservableObject, IssueEditViewModelProtocol {
         self.isConsistenly =  task.isСonsistently
         self.stepsInfo =  task.steps
         self.DescriptionSizes = getArrayOfSizes(array: self.stepsInfo)
+        self._isTrack = Published(initialValue: checkIsTrack())
+    }
+    
+    private func checkIsTrack() -> Bool {
+      if CoreDataController.shared.fetchTrackTask(to: UserSettings.shared.user)?.first(where: { task in
+            task.id == self.task.id
+      }) == nil { return false } else { return true }
+    }
+    
+    func addToTrack() {
+        let disponcer = UserSettings.shared.user as! Disponser
         
+        if CoreDataController.shared.fetchTrackTask(to: disponcer) == nil {
+            CoreDataController.shared.createTrackTask(disponcer: disponcer)
+        }
+        CoreDataController.shared.addToTrackTask(to: disponcer, task: self.task)
+    }
+    
+    func removeFromTrack() {
+        let disponcer = UserSettings.shared.user as! Disponser
+        
+        CoreDataController.shared.removeFromTrackTask(to: disponcer, task: self.task)
     }
     
     lazy var performersToPick: [Performer] = {
@@ -73,14 +89,7 @@ final class IssueEditViewModel: ObservableObject, IssueEditViewModelProtocol {
     
     func addPickedPerformer(performer: Performer) {
         performersToPick.remove(at: performersToPick.firstIndex(of: performer)!)
-        performers.append(Performer(gender: performer.gender,
-                                    dateOfBirth: performer.dateOfBirth,
-                                    name: performer.name,
-                                    surname: performer.surname,
-                                    position: performer.position,
-                                    imageName: performer.imageName,
-                                    mail: performer.mail,
-                                    password: performer.password))
+        performers.append(performer)
     }
 
     func deletePickedPerformer(performer: Performer) {
@@ -88,18 +97,20 @@ final class IssueEditViewModel: ObservableObject, IssueEditViewModelProtocol {
         performersToPick.append(performer)
     }
     
-    func saveUpdates(title: String, description: String, steps: [Step], performers: [Performer], disponcer: Disponser,currentStep: Int, isConsistenly: Bool, creationDate: Date, lastEditDate: Date) {
-        let task = Task(title: title,
-                        description: description,
-                        steps: steps,
-                        performers: performers,
-                        disponser: disponcer,
-                        currentStep: currentStep,
-                        isСonsistently: isConsistenly,
-                        creationDate: creationDate,
-                        lastEditDate: lastEditDate,
-                        status: .inProgress)
-        self.task = task
+    func saveUpdates() {
+        let task = Task(id: task.id,
+                         title: TitleTextField,
+                         description: DescriptionTextField,
+                         steps: stepsInfo,
+                         performers: performers,
+                        disponser: task.disponser,
+                         currentStep: task.currentStep,
+                         isСonsistently: isConsistenly,
+                         creationDate: task.creationDate,
+                         lastEditDate: Date(),
+                         status: task.status)
+        
+        CoreDataController.shared.updateTask(for: task.id, task: task)
     }
     
     func getArrayOfSizes(array: [Step]) -> [CGSize] {

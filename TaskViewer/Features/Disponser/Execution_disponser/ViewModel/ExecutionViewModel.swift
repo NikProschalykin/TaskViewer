@@ -2,7 +2,7 @@ import Foundation
 
 final class ExecutionViewModel: ObservableObject {
 
-    @Published var storedPerformers: [Performer] = constatntPerformers
+    @Published var storedPerformers: [Performer] = CoreDataController.shared.fetchPerformers()
     
     @Published var searchText = ""
     

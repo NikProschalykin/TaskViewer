@@ -43,6 +43,7 @@ struct ProfileContentView: View {
                     }
                 }
             }
+            .tint(.black)
             .navigationTitle("Профиль")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

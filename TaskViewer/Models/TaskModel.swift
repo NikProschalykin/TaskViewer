@@ -30,6 +30,7 @@ struct Task: Hashable, TaskProtocol {
 }
 
 struct Step: Hashable {
+    var id: UUID?
     var title: String
     var description: String
     var status: StepStatus

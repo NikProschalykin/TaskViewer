@@ -1,8 +1,7 @@
 import Foundation
 
-enum UserRole {
-    case performer
-    case disposer
-    case admin
-    case unselected
+enum UserRole: String {
+    case performer = "Исполнитель"
+    case disposer = "Руководитель"
+    case admin = "Админ"
 }

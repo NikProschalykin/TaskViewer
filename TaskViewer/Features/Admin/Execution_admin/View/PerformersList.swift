@@ -9,7 +9,7 @@ struct PerformersList: View {
             HStack {
                 Spacer()
                 NavigationLink {
-                    AddUserView(user: .disposer)
+                    AddUserView(user: .performer)
                 } label: {
                     Label {
                         Text("Добавить")
@@ -42,8 +42,12 @@ struct PerformersList: View {
             .navigationTitle("Исполнители")
             .listStyle(.insetGrouped)
         }
+        .onAppear {
+            viewModel.filterPerformers()
+        }
         .searchable(text: $viewModel.searchText,placement: .navigationBarDrawer(displayMode: .always), prompt: "Найти исполнителя")
     }
+    
 }
 
 struct PerformersList_Previews: PreviewProvider {
